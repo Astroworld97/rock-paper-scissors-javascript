@@ -1,16 +1,14 @@
-//const { realpath } = require('fs')
-//let playerChoiceArray = []
-
+let playerChoice
+let computerChoice
 let play = function(){
-    let playerChoice = prompt("What's your choice? 'r' for rock, 'p' for paper, 's' for scissors'\n")
-    //playerChoice = playerChoiceArray[0]
+    playerChoice = prompt("What's your choice? 'r' for rock, 'p' for paper, 's' for scissors'\n")
     computerChoice = getComputerChoice()
     let retval = [playerChoice, computerChoice]
-    if (playerChoice === computerChoice){
+    if (playerChoice === computerChoice){ //tie
         retval.push(0)
-    }else if(is_win(playerChoice, computerChoice)){
+    }else if(is_win(playerChoice, computerChoice)){ //player wins, computer loses
         retval.push(1)
-    }else{
+    }else{ //player loses, computer wins
         retval.push(-1)
     }
     return retval
@@ -56,19 +54,6 @@ let is_win = function(player, opponent){
     return false
 }
 
-// let input = function(){
-//     const readline = require('readline')
-//     const rl = readline.createInterface({
-//         input: process.stdin,
-//         output: process.stdout
-//     });
-//     rl.question("What's your choice? 'r' for rock, 'p' for paper, 's' for scissors'\n", (choice) => {
-//     playerChoiceArray = []
-//     playerChoiceArray.push(choice)
-//     rl.close()
-//     });
-// }
-
 let getComputerChoice = function(){
     const choices = ['r', 'p', 's']
     const num = getRandomInt(3)
@@ -79,16 +64,9 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
 
-let hello = function(){
-    console.log(playerChoiceArray[0])
-}
-
 //main
-//playBestOf(5)
-
-//input test
-//input()
-play()
+let ans = playBestOf(5)
+console.log(ans)
 
 
 
