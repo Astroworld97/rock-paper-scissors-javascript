@@ -1,18 +1,26 @@
 let playerChoice
 let computerChoice
 let play = function(){
-    playerChoice = prompt("What's your choice? 'r' for rock, 'p' for paper, 's' for scissors'\n")
-    computerChoice = getComputerChoice()
-    let retval = [playerChoice, computerChoice]
-    if (playerChoice === computerChoice){ //tie
-        retval.push(0)
-    }else if(is_win(playerChoice, computerChoice)){ //player wins, computer loses
-        retval.push(1)
-    }else{ //player loses, computer wins
-        retval.push(-1)
+    if(playerChoice!==null){
+        computerChoice = getComputerChoice()
+        let retval = [playerChoice, computerChoice]
+        if (playerChoice === computerChoice){ //tie
+            retval.push(0)
+        }else if(is_win(playerChoice, computerChoice)){ //player wins, computer loses
+            retval.push(1)
+        }else{ //player loses, computer wins
+            retval.push(-1)
+        }
+        return retval
     }
-    return retval
+
 }
+
+document.querySelector('#player-choice-form').addEventListener('submit', function(e){
+    e.preventDefault() //include this line if you don't want the page to refresh automatically
+    playerChoice = e.target.elements.playerChoix.value
+    e.target.elements.playerChoix.value = ''
+})
 
 let playBestOf = function(n){
     //play against the computer until someone wins best of n games
@@ -65,8 +73,8 @@ function getRandomInt(max) {
 }
 
 //main
-let ans = playBestOf(5)
-console.log(ans)
+// let ans = playBestOf(5)
+// console.log(ans)
 
 
 
