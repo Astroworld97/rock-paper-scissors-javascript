@@ -50,16 +50,40 @@ document.querySelector('#player-choice-form').addEventListener('submit', functio
     let result = play(p)
     const a = document.getElementById("announcement");
     if(result===0){ //tie
-        a.textContent = "You and the computer chose the same move. It's a tie!"
+        a.textContent = `You and the computer both chose ${p}. It's a tie!`
     }else if(result===1){ //player wins, computer loses
+        let player = null
+        let comp = null
+        if(p==='r'){
+            player = 'rock'
+            comp = 'scissors'
+        }else if(p==='p'){
+            player ='paper'
+            comp = 'rock'
+        }else{
+            player = 'scissors'
+            comp = 'paper'
+        }
         playerWinsIncrement()
-        a.textContent = "You won! Congratulations"
+        a.textContent = `You chose ${player} and the computer chose ${comp}. You won! Congratulations.`
         winSummary.textContent = `You have ${winsLog.playerWins} wins and the computer has ${winsLog.computerWins}`
     }else if(result===-100){
         a.textContent = "Sorry, you can only enter 'r' for rock, 'p' for paper, or 's' for scissors."
     }else{ //computer wins, player loses
+        let player = null
+        let comp = null
+        if(p==='r'){
+            player = 'rock'
+            comp = 'paper'
+        }else if(p==='p'){
+            player ='paper'
+            comp = 'scissors'
+        }else{
+            player = 'scissors'
+            comp = 'rock'
+        }
         computerWinsIncrement()
-        a.textContent = "Sorry, you lost and the computer won"
+        a.textContent = `You chose ${player} and the computer chose ${comp}. Sorry, you lost and the computer won.`
         winSummary.textContent = `You have ${winsLog.playerWins} wins and the computer has ${winsLog.computerWins}`
     }
     e.target.elements.playerChoix.value = ''
