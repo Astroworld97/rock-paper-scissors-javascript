@@ -1,7 +1,24 @@
+let checkCorrectInput = function(playerChoice){
+    if(playerChoice === 'r' || playerChoice === 's' || playerChoice === 'p'){
+        return true
+    }else{
+        return false
+    }
+}
+
+console.log(checkCorrectInput('r'))
+console.log(checkCorrectInput('s'))
+console.log(checkCorrectInput('p'))
+console.log(checkCorrectInput(1))
+console.log(checkCorrectInput('n'))
+
+
+
+
 //how to do user input in JS using the browser...
 
-let person = prompt("Please enter your name")
-console.log(person)
+// let person = prompt("Please enter your name")
+// console.log(person)
 
 // let arr = []
 // let test = prompt("Enter text")
