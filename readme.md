@@ -23,3 +23,5 @@ However, if you input anything that is not "r" for rock, "s" for scissors, or "p
 ![errorScreen](rock-paper-scissors-javascript/../errorScreen.png)
 
 Inspired by the Python tutorial at https://www.youtube.com/watch?v=xRlN8CFJwAM
+
+Note: You need to run Live-Server so it runs on the browser
